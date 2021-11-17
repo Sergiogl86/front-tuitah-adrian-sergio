@@ -6,7 +6,7 @@ const Header = () => (
       <a> LIST --</a>
     </Link>
     <Link href="/create">
-      <a> CREATE </a>
+      <a> CREATE TUIT </a>
     </Link>
   </div>
 )
