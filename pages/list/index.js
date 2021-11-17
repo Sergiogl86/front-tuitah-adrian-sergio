@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TuitCard from "@/components/TuitCard/TuitCard";
 
 // const SortByDate = posts.sort((a, b) => {
 //   const beforeDate = DateTime.fromFormat(a.frontmatter.date, 'M/d/yyyy')
@@ -14,8 +15,10 @@ const ListTuitah = ({ posts }) => (
         <li key={post.id}>
           <Link href={`/list/${post.id}`} >
             <a>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
+              {/* <TuitCard tuitPost={post} /> */}
+              <h5>{post.text}</h5>
+              <p>{post.date}</p>
+              <p>{post.likes}</p>
             </a>
           </Link >
         </li>))}
@@ -24,7 +27,7 @@ const ListTuitah = ({ posts }) => (
 // https://tuitah-sergio-adri.herokuapp.com/
 
 export const getStaticProps = async () => {
-  const response = await fetch(`https://isdi-blog-posts-api.herokuapp.com/posts`)
+  const response = await fetch(`http://localhost:4500/tuitah/all`)
   const tuitahApi = await response.json();
   return { props: { posts: tuitahApi, }, }
 }
