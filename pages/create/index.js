@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const CreateTuit = () => {
   const initialTuit = {
-    title: "", // text
+    body: "", // text
   }
 
   const [tuit, setTuit] = useState(initialTuit)
@@ -37,7 +37,7 @@ const CreateTuit = () => {
       <h2> Create Tuit </h2>
       <form onSubmit={onSubmit}>
         <label htmlFor="body">Text:</label>
-        <input type="text" name="body" id="body" value={tuit.body} onChange={onChange} placeholder="Max 200 characters" />
+        <input type="text" name="body" id="body" value={tuit.body} /* tuit.text */ onChange={onChange} placeholder="Max 200 characters" />
         <button type="submit">Submit</button>
       </form>
     </>
