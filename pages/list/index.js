@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TuitCard from "@/components/TuitCard/TuitCard";
+// import TuitCard from "@/components/TuitCard/TuitCard";
 
 // const SortByDate = posts.sort((a, b) => {
 //   const beforeDate = DateTime.fromFormat(a.frontmatter.date, 'M/d/yyyy')
