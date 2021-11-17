@@ -16,8 +16,6 @@ const TuitCard = ({ post, onDelete }) => {
     setPosted(responseApi);
   }
 
-
-
   return (
     <li key={posted.id}>
       <div className="card">
@@ -26,7 +24,7 @@ const TuitCard = ({ post, onDelete }) => {
         </div>
         <div className="card-body">
           <a><h5 className="card-title">{posted.text}</h5></a>
-          <p className="card-text">{posted.date}</p>
+          <p className="card-text">{posted.date.split("T")[0]}</p>
           <button className="btn btn-primary" onClick={onLike}>Like</button>
           <button className="btn btn-danger" onClick={() => onDelete(posted.id)}>Delete</button>
         </div>

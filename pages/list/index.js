@@ -25,9 +25,11 @@ const ListTuitah = ({ posts }) => {
     <>
       <h1>List Tuitah</h1>
       <ul>
-        {posted.map((post) => (
-          <TuitCard key={post.id} post={post} onDelete={onDelete} />
-        ))
+        {posted
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map((post) => (
+            <TuitCard key={post.id} post={post} onDelete={onDelete} />
+          ))
         }
       </ul>
     </>
@@ -37,7 +39,6 @@ const ListTuitah = ({ posts }) => {
 export const getStaticProps = async () => {
   const response = await fetch(`https://tuitah-sergio-adri.herokuapp.com/tuitah/all`)
   const tuitahApi = await response.json();
-  console.log(tuitahApi);
   return { props: { posts: tuitahApi, }, }
 }
 
