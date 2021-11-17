@@ -27,7 +27,7 @@ const ListTuitah = ({ posts }) => (
 // https://tuitah-sergio-adri.herokuapp.com/
 
 export const getStaticProps = async () => {
-  const response = await fetch(`http://localhost:4500/tuitah/all`)
+  const response = await fetch(`https://tuitah-sergio-adri.herokuapp.com/tuitah/all`)
   const tuitahApi = await response.json();
   return { props: { posts: tuitahApi, }, }
 }

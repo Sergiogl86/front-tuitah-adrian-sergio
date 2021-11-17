@@ -16,7 +16,7 @@ const CreateTuit = () => {
 
   const postMethod = async (post) => {
     // https://tuitah-sergio-adri.herokuapp.com/
-    await fetch("http://localhost:4500/tuitah/add",
+    await fetch("https://tuitah-sergio-adri.herokuapp.com/tuitah/add",
       {
         method: "POST",
         body: JSON.stringify(post),
