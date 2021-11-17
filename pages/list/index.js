@@ -1,11 +1,17 @@
+import Link from "next/link";
+
 const ListTuitah = ({ posts }) => (
   <>
     <h1>List Tuitah</h1>
     <ul>
       {posts.map((post) => (
         <li key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
+          <Link href={`/list/${post.id}`} >
+            <a>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </a>
+          </Link >
         </li>))}
     </ul>
   </>
