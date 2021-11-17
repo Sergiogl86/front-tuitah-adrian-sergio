@@ -1,3 +1,4 @@
+
 import Header from '../components/Header/Header'
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../styles/global.css'
@@ -10,5 +11,5 @@ export default function MyApp({ Component, pageProps }) {
       <Header />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
