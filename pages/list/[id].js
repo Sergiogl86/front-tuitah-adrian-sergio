@@ -1,36 +1,36 @@
 import { useRouter } from "next/router";
+import TuitCard from "../../components/TuitCard/TuitCard";
 
-const PostSSGId = ({ post }) => {
+const ListId = ({ post }) => {
   const router = useRouter();
+  console.log(post)
   if (router.isFallback) {
     return <h2>LOADING...</h2>
   }
   return (<>
-    <h1> List Tuitah </h1>
-    <h2>{post.title}</h2>
-    <p>{post.body}</p>
+    <TuitCard post={post} />
   </>)
 }
 
 export const getStaticPaths = async () => {
-  const response = await fetch("https://isdi-blog-posts-api.herokuapp.com/posts");
-  const postApi = await response.json();
-  const paths = postApi.map((post) => ({ params: { id: `${post.id}` } }));
+  const response = await fetch("https://tuitah-sergio-adri.herokuapp.com/tuitah/all");
+  const tuitahApi = await response.json();
+  console.log(tuitahApi)
+  const paths = tuitahApi.map((tuit) => ({ params: { id: `${tuit.id}` } }));
 
   return {
     paths,
     fallback: true,
   }
 }
-// https://tuitah-sergio-adri.herokuapp.com/
 
 export const getStaticProps = async ({ params: { id } }) => {
-  const response = await fetch(`https://isdi-blog-posts-api.herokuapp.com/posts/${id}`)
-  const postApi = await response.json();
+  const response = await fetch(`https://tuitah-sergio-adri.herokuapp.com/tuitah/all/${id}`)
+  const tuitApi = await response.json();
   return {
-    props: { post: postApi, },
+    props: { post: tuitApi, },
     revalidate: 20,
   }
 }
 
-export default PostSSGId;
+export default ListId;
