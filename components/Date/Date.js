@@ -8,7 +8,7 @@ const DateSince = ({ date }) => {
 
   return (
     <>
-      <h5> {`El tuit tiene ${calculate()} minutos...`}</h5>
+      <p> {`El tuit tiene ${calculate()} minutos...`}</p>
     </>
   );
 };
