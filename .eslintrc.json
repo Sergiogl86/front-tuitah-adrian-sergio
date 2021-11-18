@@ -1,4 +1,5 @@
 {
+  "env": { "jest": true },
   "root": true,
   "extends": ["next/core-web-vitals", "airbnb-base", "prettier"],
   "rules": {
