@@ -1,3 +1,5 @@
+
+import Link from "next/link";
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es.json";
 import { useState } from "react";
@@ -22,14 +24,18 @@ const TuitCard = ({ post, onDelete }) => {
     const responseApi = await response.json();
     setPosted(responseApi);
   };
+
   return (
     <li key={posted.id}>
       <div className="card">
         <div className="card-header">Numbah of likes: {posted.likes}</div>
         <div className="card-body">
-          <a>
-            <h5 className="card-title">{posted.text}</h5>
-          </a>
+
+          <Link href={`/list/${post.id}`}>
+            <a>
+              <h5 className="card-title">{posted.text}</h5>
+            </a>
+          </Link>
           {posted && (
             <p>
               <ReactTimeAgo date={posted.date} locale="es" />
