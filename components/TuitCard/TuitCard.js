@@ -1,9 +1,14 @@
+
 import Link from "next/link";
+import TimeAgo from "javascript-time-ago";
+import es from "javascript-time-ago/locale/es.json";
 import { useState } from "react";
-import DateSince from "../Date/Date";
+import ReactTimeAgo from "react-time-ago";
 
 const TuitCard = ({ post, onDelete }) => {
   const [posted, setPosted] = useState(post);
+
+  TimeAgo.addLocale(es);
 
   const onLike = async () => {
     const response = await fetch(
@@ -25,14 +30,14 @@ const TuitCard = ({ post, onDelete }) => {
       <div className="card">
         <div className="card-header">Numbah of likes: {posted.likes}</div>
         <div className="card-body">
-          <Link href={`/list/${post.id}`}>
-            <a>
-              <h5 className="card-title">{posted.text}</h5>
-            </a>
-          </Link>
-          {posted && <DateSince date={posted.date} />}
-
-          <p className="card-text"></p>
+          <a>
+            <h5 className="card-title">{posted.text}</h5>
+          </a>
+          {posted && (
+            <p>
+              <ReactTimeAgo date={posted.date} locale="es" />
+            </p>
+          )}
           <button className="btn btn-primary" onClick={onLike}>
             Like
           </button>
