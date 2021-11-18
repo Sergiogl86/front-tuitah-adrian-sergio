@@ -45,6 +45,7 @@ const CreateTuit = () => {
               name="text"
               id="text"
               value={tuit.text}
+              maxLength="200"
               /* tuit.text */ onChange={onChange}
               placeholder="Max 200 characters"
             />
