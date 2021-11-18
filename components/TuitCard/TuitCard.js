@@ -1,8 +1,12 @@
+import TimeAgo from "javascript-time-ago";
+import es from "javascript-time-ago/locale/es.json";
 import { useState } from "react";
 import ReactTimeAgo from "react-time-ago";
 
 const TuitCard = ({ post, onDelete }) => {
   const [posted, setPosted] = useState(post);
+
+  TimeAgo.addLocale(es);
 
   const onLike = async () => {
     const response = await fetch(
