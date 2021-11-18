@@ -6,12 +6,12 @@ const Header = () => (
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link href="/list">
-            <a className="nav-link" href="#">LIST</a>
+            <a className="nav-link" >LIST</a>
           </Link>
         </li>
         <li className="nav-item">
           <Link href="/create">
-            <a className="nav-link" href="#">CREATE</a>
+            <a className="nav-link" >CREATE</a>
           </Link>
         </li>
       </ul>

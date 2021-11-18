@@ -81,6 +81,10 @@
   }
 }
 
-.navbar-collapse {
+.nav-item {
   display: flex;
+}
+
+.nav-link {
+  width: 50px;
 }
