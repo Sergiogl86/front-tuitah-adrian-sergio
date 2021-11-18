@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => (
   <nav className="navbar navbar-dark bg-primary">
-    <div className="navbar-collapse" id="navbarNav">
+    <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link href="/list">
