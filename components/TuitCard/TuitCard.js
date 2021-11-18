@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import DateSince from "../Date/Date";
 
@@ -18,17 +19,20 @@ const TuitCard = ({ post, onDelete }) => {
     const responseApi = await response.json();
     setPosted(responseApi);
   };
+
   return (
     <li key={posted.id}>
       <div className="card">
         <div className="card-header">Numbah of likes: {posted.likes}</div>
         <div className="card-body">
-          <a>
-            <h5 className="card-title">{posted.text}</h5>
-          </a>
+          <Link href={`/list/${post.id}`}>
+            <a>
+              <h5 className="card-title">{posted.text}</h5>
+            </a>
+          </Link>
           {posted && <DateSince date={posted.date} />}
 
-          <p className="card-text">{/* posted.date.split("T")[0] */}</p>
+          <p className="card-text"></p>
           <button className="btn btn-primary" onClick={onLike}>
             Like
           </button>

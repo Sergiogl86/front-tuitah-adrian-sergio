@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/link-passhref */
-import Link from "next/link";
+
 import { useState } from "react";
 import TuitCard from "../../components/TuitCard/TuitCard";
+
 
 const ListTuitah = ({ posts }) => {
 
@@ -25,18 +26,12 @@ const ListTuitah = ({ posts }) => {
     <>
       <h1>List Tuitah</h1>
       <ul>
-
         {posted
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((post) => (
-            <Link key={post.id} href={`/list/${post.id}`}>
-
-              <TuitCard post={post} onDelete={onDelete} />
-
-            </Link>
+            <TuitCard key={post.id} post={post} onDelete={onDelete} />
           ))
         }
-
       </ul>
     </>
   )
