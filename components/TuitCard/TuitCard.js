@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es.json";
@@ -30,7 +29,6 @@ const TuitCard = ({ post, onDelete }) => {
       <div className="card">
         <div className="card-header">Numbah of likes: {posted.likes}</div>
         <div className="card-body">
-
           <Link href={`/list/${post.id}`}>
             <a>
               <h5 className="card-title">{posted.text}</h5>
@@ -38,17 +36,17 @@ const TuitCard = ({ post, onDelete }) => {
           </Link>
           {posted && (
             <p>
-              <ReactTimeAgo date={posted.date} locale="es" />
+              <ReactTimeAgo date={Date.parse(posted.date)} locale="es" />
             </p>
           )}
-          <button className="btn btn-primary" onClick={onLike}>
-            Like
+          <button className="btn btn-primary m-2" onClick={onLike}>
+            <i className="fas fa-thumbs-up"></i>
           </button>
           <button
-            className="btn btn-danger"
+            className="btn btn-danger m-2"
             onClick={() => onDelete(posted.id)}
           >
-            Delete
+            <i className="fas fa-hand-middle-finger"></i>
           </button>
         </div>
       </div>

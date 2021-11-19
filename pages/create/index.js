@@ -35,12 +35,15 @@ const CreateTuit = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container m-5">
         <form onSubmit={onSubmit}>
           <div className="list-group">
-            <h2 className="list-group-item active"> Create Tuit </h2>
+            <h2 className="list-group-item list-group-item-dark">
+              {" "}
+              Create Tuit{" "}
+            </h2>
             <textarea
-              className="list-group-item list-group-item-dark"
+              className="list-group-item list-group-item-secondary"
               type="text"
               name="text"
               id="text"
@@ -49,7 +52,7 @@ const CreateTuit = () => {
               /* tuit.text */ onChange={onChange}
               placeholder="Max 200 characters"
             />
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-dark" type="submit">
               Submit
             </button>
           </div>
