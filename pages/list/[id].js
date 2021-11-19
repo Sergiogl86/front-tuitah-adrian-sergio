@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import TimeAgo from "javascript-time-ago";
+import es from "javascript-time-ago/locale/es.json";
+import ReactTimeAgo from "react-time-ago";
 
 const TuitId = ({ post }) => {
   const router = useRouter();
+  TimeAgo.addLocale(es);
 
   const onDelete = async () => {
     await fetch(`https://tuitah-sergio-adri.herokuapp.com/tuitah/delete`, {
@@ -33,13 +37,20 @@ const TuitId = ({ post }) => {
         <div className="card-header">Numbah of likes: {post.likes}</div>
         <div className="card-body">
           <h5 className="card-title">{post.text}</h5>
+          {post && (
+            <p>
+              <ReactTimeAgo date={Date.parse(post.date)} locale="es" />
+            </p>
+          )}
 
-          <button className="btn btn-primary" onClick={() => onLike()}>
-            Like
+          <button className="btn btn-primary m-2" onClick={() => onLike()}>
+            <i className="fas fa-thumbs-up"></i>
           </button>
-          <button className="btn btn-danger" onClick={() => onDelete()}>
+          <button className="btn btn-danger m-2" onClick={() => onDelete()}>
             <Link href="/list">
-              <a>Delete</a>
+              <a>
+                <i className="fas fa-hand-middle-finger"></i>
+              </a>
             </Link>
           </button>
         </div>
